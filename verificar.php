@@ -1,58 +1,58 @@
 <?php
-     $conexion = pg_connect("host='localhost' dbname=prueba port=5432 user=postgres password=123") or die ("error de conexcion".pg_last_error());
-    if ($conexion) {
-    	echo "conectado";
-      }else{
-      	echo "no conectado";
-      }
+  include('conexion.php');// llamado del archivo conexion.php como una libreria
+  //llamamos a la funcion y la asignamos a la variable conexion
+  $conexion = Conexion();
+  // verificiamso si hay una conexion
+  if ($conexion) {
+    echo "conectado";
+  }else{
+    echo "no conectado";
+  }
 
-    $tramites = $_POST['tramites'];
-    $Fecha = $_POST['Fecha'];
-    $Asunto = $_POST['Asunto'];
-    $NombreSol = $_POST['NombreSol'];
-    $apellidoP = $_POST['apellidoP'];
-    $ApellidoM = $_POST['ApellidoM'];
-    $RFC = $_POST['RFC'];
-    $Celular = $_POST['Celular'];
-    $correo = $_POST['correo'];
-    $NombreEmpr = $_POST['NombreEmpr'];
-    $DireccionFs = $_POST['DireccionFs'];
-    $DirecciCom = $_POST['DirecciCom'];
-    $calles = $_POST['calles'];
-    $colonia = $_POST['colonia'];
-    $numlo = $_POST['numlo'];
-    $sec = $_POST['sec'];
-    $entreCall = $_POST['entreCall'];
-    $giroEm = $_POST['giroEm'];
-    $OficinaCon = $_POST['OficinaCon'];
+  //valores del usuario
+  $tramites = $_POST['tramites'];
+  $Fecha = $_POST['Fecha'];
+  $Asunto = $_POST['Asunto'];
+  $NombreSol = $_POST['NombreSol'];
+  $apellidoP = $_POST['apellidoP'];
+  $ApellidoM = $_POST['ApellidoM'];
+  $RFC = $_POST['RFC'];
+  $Celular = $_POST['Celular'];
+  $correo = $_POST['correo'];
+
+  // valores de la empresa
+  $NombreEmpr = $_POST['NombreEmpr'];
+  $DireccionFs = $_POST['DireccionFs'];
+  $DirecciCom = $_POST['DirecciCom'];
+  $calles = $_POST['calles'];
+  $colonia = $_POST['colonia'];
+  $numlo = $_POST['numlo'];
+  $sec = $_POST['sec'];
+  $entreCall = $_POST['entreCall'];
+  $giroEm = $_POST['giroEm'];
+  $OficinaCon = $_POST['OficinaCon'];
     
-    
-   
+  // insercion a la tabla persona_e1
+  $persona = pg_query($conexion, "INSERT INTO persona_e1 (id_persona, nombre, apellidop, apellidom, telefono, tipo, razon_social, denominacion_fiscal, correo, rfc) 
+  values(DEFAULT,'$NombreSol','$apellidoP','$ApellidoM','$Celular','1', '1', '1','$correo','$RFC')");
+  // condiciona si existe la consulta en la variable $persona si se logro realizar la insercion
+  if($persona){ // si se logro la insercion
+    echo "<br> Los datos se insertaron en la tabla persona_e1";
+  }else{// si no se logro la insercion
+    echo "<br> Los datos no se insertaron en la tabla persona_e1";
+  }// fin del condicional a la tabla persona_e1
+
+  // insercion a la tabla empresa
+
+  // insercion a la tabla op_tramite
+
+  // insercion a la tabla op_ciudadano_empresa
+
+  // insercion a la tabla oficio_e1
+
+  
         
-   pg_query ("INSERT INTO dictaminar_autorizar_planes (id, tramites, Fecha, Asunto, NombreSol, apellidoP, ApellidoM, RFC, Celular, correo, NombreEmpr, DireccionFs, DirecciCom, calles, colonia, numlo, sec, entreCall, giroEm, OficinaCon, Firma) VALUES (DEFAULT,'$tramites','$Fecha','$Asunto','$NombreSol','$apellidoP','$ApellidoM','$RFC','$Celular','$correo','$NombreEmpr','$DireccionFs','$DirecciCom','$calles','$colonia','$numlo','$sec','$entreCall','$giroEm','$OficinaCon')");
-
-
-echo "¡Los datos fueron ingresados.\n";
-
-    /*echo "<p>$Fecha </p>";
-    echo "<p>$Asunto </p>";
-    echo "<p>$NombreSol </p>";
-    echo "<p>$apellidoP </p>";
-    echo "<p>$ApellidoM </p>";
-    echo "<p>$RFC </p>";
-    echo "<p>$Celular</p>";
-    echo "<p>$correo</p>";
-    echo "<p>$NombreEmpr</p>";
-    echo "<p>$DireccionFs </p>";
-    echo "<p>$DirecciCom </p>";
-    echo "<p>$calles</p>";
-    echo "<p>$colonia </p>";
-    echo "<p>$numlo </p>";
-    echo "<p>$sec </p>";
-    echo "<p>$entreCall </p>";
-    echo "<p>$giroEm </p>";
-    echo "<p>$OficinaCon </p>";
-    echo "<p>$Firma </p>";*/
+  
 ?>
 <!DOCTYPE html>
 <html>
