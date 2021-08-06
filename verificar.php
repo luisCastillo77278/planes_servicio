@@ -52,6 +52,17 @@
     echo "<br> Los datos no se insertaron en la tabla empresa";
   }// fin del condicional a la tabla empresa
   
+  $oficio = pg_query($conexion, "SELECT id_oficio FROM oficio_e1 WHERE id_oficio=(select max(id_oficio) from oficio_e1)");
+  if(!$oficio){
+    echo "<br>Error en la consulta";
+  }
+  if (pg_num_row($oficio)== 0){
+    echo "<br>no exisite ningun registro en oficio";
+  }else{
+    while($oficio_id = pg_fetch_row($oficio)){
+      echo "<br>oficio: $oficio_id[0]";
+    }
+  }
   // insercion a la tabla oficio_e1
   // firma, comprobante, ine, rfc
   
