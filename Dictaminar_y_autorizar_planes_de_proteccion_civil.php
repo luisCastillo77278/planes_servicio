@@ -72,7 +72,7 @@
         <hr />
         <div class="row">
           <div class="col">
-            <form action="verificar.php" method="post">
+            <form action="verificar.php" method="post" enctype="multipart/form-data">
               <ul class="nav nav-tabs" id="myTab" role="tablist">
                 <li class="nav-item">
                   <a
@@ -361,7 +361,7 @@
                         <label for="">Archivo Firmado</label>
                         <div class="form-group">
                           <label for="">Cargar archivo</label>
-                          <input type="file" name="firma" id="firma" />
+                          <input type="file" name="firma" id="firma" accept=".pdf"/>
                         </div>
                       </div>
                       <div class="form-group col-md-6">
@@ -369,13 +369,13 @@
                           >Comprobante de domicilio del estado de tabasco</label
                         >
                         <br />
-                        <input type="file" id="ejemplo_archivo_1" />
+                        <input type="file" id="ejemplo_archivo_1" name="comprobante" accept=".pdf"/>
                         <p class="help-block">No mayor a 3 meses</p>
                       </div>
                       <div class="form-group col-md-6">
                         <label for="ejemplo_archivo_1">INE/IFE</label>
                         <br />
-                        <input type="file" id="ejemplo_archivo_1" />
+                        <input type="file" id="ejemplo_archivo_1" name="ine"/>
                         <p class="help-block">Comprobante de amabas caras</p>
                       </div>
 
@@ -384,7 +384,7 @@
                           >Comprobante de RFC</label
                         >
                         <br />
-                        <input type="file" id="ejemplo_archivo_1" />
+                        <input type="file" id="ejemplo_archivo_1" name="rfc" accpet=".pdf"/>
                         <p class="help-block">Documento que valide el RFC</p>
                       </div>
                     </div>
@@ -392,6 +392,7 @@
                     <div class="d-flex justify-content-end">
                       <input
                         type="submit"
+                        name="acc"
                         value="continuar"
                         class="btn btn-primary btn-block"
                         style="background-color: #9d2449"

@@ -51,14 +51,14 @@
   }else{// si no se logro la insercion
     echo "<br> Los datos no se insertaron en la tabla empresa";
   }// fin del condicional a la tabla empresa
-
+  
+  // insercion a la tabla oficio_e1
+  // firma, comprobante, ine, rfc
+  
+  // insercion a la tabla op_ciudadano_empresa
+  
   // insercion a la tabla op_tramite
 
-  // insercion a la tabla op_ciudadano_empresa
-
-  // insercion a la tabla oficio_e1
-
-  
         
   
 ?>
