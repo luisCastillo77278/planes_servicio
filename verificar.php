@@ -56,7 +56,7 @@
   if(!$oficio){
     echo "<br>Error en la consulta";
   }
-  if (pg_num_row($oficio)== 0){
+  if (pg_num_rows($oficio)== 0){
     echo "<br>no exisite ningun registro en oficio";
   }else{
     while($oficio_id = pg_fetch_row($oficio)){
