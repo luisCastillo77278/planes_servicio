@@ -116,7 +116,7 @@
                             // poner el valor a los options
                           include('conexion.php');
                           $con = Conexion();
-                          $modalidad = pg_query($con,"select id_modalidad, nombre from modalida_tramite_e1 mte where id_modalidad in (select id_modalidad from op_tramite_dep_modalidad_e1 otdme where id_tramite = 3)");
+                          $modalidad = pg_query($con,"select id_modalidad, nombre from modalida_tramite_e1 where id_modalidad in (select id_modalidad from op_tramite_dep_modalidad_e1 where id_tramite = 3)");
                           while ($row = pg_fetch_row($modalidad)){
                             echo "<option value='$row[0]'>".$row[1]."</option>";
                           }
